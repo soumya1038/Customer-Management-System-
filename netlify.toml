@@ -1,10 +1,11 @@
 [build]
   base = "client"
-  command = "npm install && npm run build"
+  command = "npm ci && npm run build"
   publish = "build"
 
 [build.environment]
   REACT_APP_API_URL = "https://customer-management-system-2k1n.onrender.com"
+  NODE_VERSION = "18"
 
 [[redirects]]
   from = "/*"
