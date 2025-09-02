@@ -2,6 +2,9 @@
   command = "cd client && npm install && npm run build"
   publish = "client/build"
 
+[build.environment]
+  REACT_APP_API_URL = "https://customer-management-system-2k1n.onrender.com"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
