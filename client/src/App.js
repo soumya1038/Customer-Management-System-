@@ -16,6 +16,4 @@ function App() {
   );
 }
 
-// <Route path="/customers" element={<div>Customers</div>} />
-// <Route path="/customers/:id" element={<div>Customer Details</div>} />
 export default App;

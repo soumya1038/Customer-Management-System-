@@ -6,6 +6,7 @@ import { RotatingLines } from 'react-loader-spinner';
 import './Home.css';
 
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+console.log('API_BASE:', API_BASE);
 
 class Home extends Component {
   state = {
@@ -46,7 +47,9 @@ class Home extends Component {
         // if you'd like to support city filter separately, add { city } here
       };
 
+      console.log('Fetching from:', `${API_BASE}/api/customers`, 'with params:', params);
       const res = await axios.get(`${API_BASE}/api/customers`, { params });
+      console.log('Response:', res.data);
 
       // guard if component unmounted
       if (!this._isMounted) return;
@@ -58,7 +61,8 @@ class Home extends Component {
         totalPages: meta.totalPages || 1,
       });
     } catch (err) {
-      console.error(err);
+      console.error('API Error:', err);
+      console.error('Error response:', err.response);
       if (!this._isMounted) return;
       this.setState({
         error: err.response?.data?.message || err.message || 'Failed to fetch customers',

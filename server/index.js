@@ -9,7 +9,10 @@ const errorHandler = require('./middleware/errorHandler');
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://customer-management-system-2k1n.onrender.com', /\.netlify\.app$/],
+  credentials: true
+}));
 app.use(express.json());
 
 // initialize DB and tables
@@ -295,7 +298,9 @@ app.delete('/api/addresses/:addressId', async (req, res, next) => {
 /* -------------------------
    Generic handlers
    ------------------------- */
-app.get('/', (req, res) => res.send('Customer Management API'));
+app.get('/', (req, res) => res.json({ message: 'Customer Management API', status: 'running' }));
+
+app.get('/health', (req, res) => res.json({ status: 'healthy', timestamp: new Date().toISOString() }));
 
 app.use((req, res, next) => {
   res.status(404).json({ message: 'Not Found' });
