@@ -56,10 +56,26 @@ class Home extends Component {
 
       const list = Array.isArray(res.data.data) ? res.data.data : [];
       const meta = res.data.meta || {};
+      const serverTotalPages = meta.totalPages ? Number(meta.totalPages) : 1;
+
+      // If the user requested a page > serverTotalPages (e.g. stale totalPages),
+      // set the page to the final page and optionally re-fetch.
+      // We'll update state to show the server's totalPages; if requested page > server, refetch.
+      if (this.state.page > serverTotalPages) {
+        // adjust to last available page and fetch that page
+        this.setState({ totalPages: serverTotalPages, page: serverTotalPages }, () => {
+          // refetch for the corrected last page
+          this.fetchCustomers();
+        });
+        return; // bail - we will fetch again for the corrected page
+      }
+
+      // normal success: set customers and server totalPages
       this.setState({
         customers: list,
-        totalPages: meta.totalPages || 1,
+        totalPages: serverTotalPages,
       });
+
     } catch (err) {
       console.error('API Error:', err);
       console.error('Error response:', err.response);
@@ -86,8 +102,10 @@ class Home extends Component {
   };
 
   goToPage = (newPage) => {
-    const page = Math.max(1, Math.min(newPage, this.state.totalPages || 1));
-    this.setState({ page }, () => this.fetchCustomers());
+    const pageRequested = Math.max(1, Math.floor(newPage) || 1);
+    if (pageRequested !== this.state.page) {
+      this.setState({ page: pageRequested }, () => this.fetchCustomers());
+    }
   };
 
   nextPage = () => this.goToPage(this.state.page + 1);
@@ -111,6 +129,7 @@ class Home extends Component {
           <Link to='/'>
             <h1>Customer Management System 🛃</h1>
           </Link>
+          <Link to="/add-customer" className="header-add-btn">Add Customer</Link>
         </header>
 
         <div className="home-content">
@@ -151,9 +170,9 @@ class Home extends Component {
           </ul>
 
           <div className="pagination">
-            <button onClick={this.prevPage} disabled={page <= 1} className="pagination-btn">Prev</button>
+            <button onClick={this.prevPage} disabled={page <= 1 || loading} className="pagination-btn">Prev</button>
             <span className="pagination-info">Page {page} of {totalPages}</span>
-            <button onClick={this.nextPage} disabled={page >= totalPages} className="pagination-btn">Next</button>
+            <button onClick={this.nextPage} disabled={page >= totalPages || loading} className="pagination-btn">Next</button>
 
             <div className="page-jump">
               Jump to page:

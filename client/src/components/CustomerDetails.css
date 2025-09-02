@@ -9,6 +9,12 @@
   margin-bottom: 2rem;
 }
 
+.customer-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .customer-details-header h1 {
   color: #1a202c;
   font-size: 2rem;
@@ -20,6 +26,20 @@
 .customer-details-header a {
   text-decoration: none;
   color: inherit;
+}
+
+.header-add-btn {
+  background: #3182ce;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.header-add-btn:hover {
+  background: #2c5aa0;
 }
 
 .customer-card {

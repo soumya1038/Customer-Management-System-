@@ -7,6 +7,14 @@
 
 .home-header {
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .home-header h1 {
@@ -20,6 +28,20 @@
 .home-header a {
   text-decoration: none;
   color: inherit;
+}
+
+.header-add-btn {
+  background: #3182ce;
+  color: white !important;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.header-add-btn:hover {
+  background: #2c5aa0;
 }
 
 .home-content {

@@ -72,6 +72,7 @@ class AddCustomer extends Component {
                     <Link to='/'>
                     <h1>Customer Management System 🛃</h1>
                     </Link>
+                    <Link to="/add-customer" className="header-add-btn">Add Customer</Link>
                 </header>
 
                 {!loading && (
