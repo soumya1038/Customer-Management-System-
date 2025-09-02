@@ -1,0 +1,194 @@
+.customer-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.customer-details-header {
+  margin-bottom: 2rem;
+}
+
+.customer-details-header h1 {
+  color: #1a202c;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  text-decoration: none;
+}
+
+.customer-details-header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.customer-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.customer-info {
+  margin-bottom: 20px;
+}
+
+.customer-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.customer-phone {
+  color: #718096;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.customer-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: #3182ce;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2c5aa0;
+}
+
+.btn-danger {
+  background: #e53e3e;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c53030;
+}
+
+.btn-secondary {
+  background: #f7fafc;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: #edf2f7;
+}
+
+.addresses-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.addresses-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 16px;
+}
+
+.addresses-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.address-item {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-text {
+  flex: 1;
+  color: #2d3748;
+  line-height: 1.5;
+}
+
+.address-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.no-addresses {
+  text-align: center;
+  color: #718096;
+  padding: 40px;
+  font-style: italic;
+}
+
+.error-message {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #e53e3e;
+}
+
+.loading-message {
+  text-align: center;
+  color: #718096;
+  padding: 20px;
+}
+
+.edit-form-container {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .customer-details-container {
+    padding: 16px;
+  }
+  
+  .customer-card,
+  .addresses-section {
+    padding: 16px;
+  }
+  
+  .customer-actions {
+    flex-direction: column;
+  }
+  
+  .address-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .address-actions {
+    align-self: stretch;
+    justify-content: flex-end;
+  }
+}
