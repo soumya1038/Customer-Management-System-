@@ -96,7 +96,7 @@ customer-management-system/
 ### Environment Variables
 
 **Client:**
-- `REACT_APP_API_URL` - Backend API URL
+- `REACT_APP_API_URL` - Backend API URL (https://user-management-system-zqu2.onrender.com)
 
 **Server:**
 - `PORT` - Server port (default: 5000)
